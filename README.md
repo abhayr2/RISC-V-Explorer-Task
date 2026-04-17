@@ -39,8 +39,26 @@ python3 main.py
 # Run and save output to file
 python3 main.py | tee sample_output/output.txt
 
-# Run tests
-pytest tests/ -v
+# Run only Tier 1
+python3 -c "from tier1_parser import fetch_instr_dict, run_tier1; run_tier1(fetch_instr_dict())"
+
+# Run only Tier 2
+python3 -c "from tier1_parser import fetch_instr_dict, group_by_extension; from tier2_crossref import run_tier2; run_tier2(group_by_extension(fetch_instr_dict()))"
+
+# Run only Tier 3
+python3 -c "from tier1_parser import fetch_instr_dict, group_by_extension; from tier3_graph import run_tier3; run_tier3(group_by_extension(fetch_instr_dict()))"
+
+# Run tests (your files are named tests_*.py)
+python3 -m pytest -v tests -o "python_files=tests_*.py"
+
+# Run only Tier 1 tests
+python3 -m pytest -v tests/tests_tier1.py
+
+# Run only Tier 2 tests
+python3 -m pytest -v tests/tests_tier2.py
+
+# Run one specific test
+python3 -m pytest -v tests/tests_tier2.py::test_crossref_matched
 ```
 
 ## Sample Output (Tier 1)
