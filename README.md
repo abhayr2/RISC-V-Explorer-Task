@@ -3,6 +3,8 @@
 A Python tool that parses the RISC-V instruction set, cross-references it
 with the official ISA manual, and visualises extension relationships. 
 
+**GIT Repo**: https://github.com/abhayr2/RISC-V-Explorer-Task
+
 ## Requirements
 
 - Python 3.11+
@@ -11,8 +13,8 @@ with the official ISA manual, and visualises extension relationships.
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/riscv-explorer.git
-cd riscv-explorer
+git clone https://github.com/abhayr2/RISC-V-Explorer-Task.git
+cd RISC-V-Explorer-Task
 pip install -r requirements.txt
 ```
 
